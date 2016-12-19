@@ -1,0 +1,48 @@
+#N canvas 244 211 596 581 10;
+#X obj 35 379 readsf~;
+#X obj 102 171 openpanel;
+#X obj 102 103 bng 10 250 50 0 empty empty Open/File 12 5 0 8 -262144
+-1 -1;
+#X msg 132 236 start;
+#X msg 199 284 stop;
+#X obj 159 103 tgl 10 0 empty empty Start/Stop 12 5 0 8 -262144 -1
+-1 0 1;
+#X obj 159 194 sel 1 0;
+#X obj 132 257 t a b;
+#X msg 505 221 0;
+#X obj 222 103 tgl 10 0 empty empty LOOP 12 5 0 8 -262144 -1 -1 0 1
+;
+#X obj 35 476 outlet~;
+#X obj 35 281 symbol;
+#X obj 210 344 spigot;
+#X obj 302 199 spigot;
+#X obj 243 266 sel 0 1;
+#X msg 243 290 1;
+#X msg 275 292 0;
+#X obj 35 321 list prepend open;
+#X obj 35 344 list trim;
+#X connect 0 0 10 0;
+#X connect 0 1 12 0;
+#X connect 0 1 13 0;
+#X connect 1 0 11 1;
+#X connect 2 0 1 0;
+#X connect 3 0 7 0;
+#X connect 4 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 3 0;
+#X connect 6 1 4 0;
+#X connect 7 0 0 0;
+#X connect 7 1 11 0;
+#X connect 8 0 5 0;
+#X connect 9 0 13 1;
+#X connect 9 0 14 0;
+#X connect 11 0 17 0;
+#X connect 12 0 8 0;
+#X connect 13 0 3 0;
+#X connect 14 0 15 0;
+#X connect 14 1 16 0;
+#X connect 15 0 12 1;
+#X connect 16 0 12 1;
+#X connect 17 0 18 0;
+#X connect 18 0 0 0;
+#X coords 0 -1 1 1 155 15 2 100 100;
