@@ -1,0 +1,71 @@
+#N canvas 424 191 785 468 10;
+#X declare -stdpath tof;
+#X obj 60 170 *~;
+#X obj 60 229 dac~;
+#X obj 32 292 declare -stdpath tof;
+#X obj 185 68 r amp_envelope;
+#X obj 425 227 breakpoints;
+#X msg 447 198 dump;
+#X obj 522 408 send amp_envelope;
+#X obj 447 178 r update_amp_env;
+#N canvas 0 22 552 371 envelope_dur 0;
+#X msg 204 245 dump;
+#X msg 243 218 duration \$1;
+#X floatatom 160 105 8 0 0 1 Duration - -, f 8;
+#X obj 204 183 t b a;
+#X msg 98 218 0 0.5 1 0.5 0;
+#X obj 106 129 t b b b;
+#X obj 106 105 bng 15 250 50 0 empty empty RESET 17 7 0 10 -262144
+-1 -1;
+#X obj 204 315 outlet;
+#X msg 160 72 1000;
+#X obj 160 47 loadbang;
+#X obj 239 74 inlet;
+#X connect 0 0 7 0;
+#X connect 1 0 7 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 3 1 1 0;
+#X connect 4 0 7 0;
+#X connect 5 0 0 0;
+#X connect 5 1 2 0;
+#X connect 5 2 4 0;
+#X connect 6 0 5 0;
+#X connect 8 0 2 0;
+#X connect 9 0 8 0;
+#X connect 10 0 2 0;
+#X coords 0 -1 1 1 170 25 2 100 100;
+#X restore 201 251 pd envelope_dur;
+#X obj 201 282 send duration_&_reset;
+#X obj 423 156 r duration_&_reset;
+#X msg 185 94 0 0 \, 1 500 \, 0 500 500 \,;
+#X obj 60 123 osc~ 440;
+#X obj 60 49 bng 45 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 522 382 brkp_2_vline;
+#X obj 185 132 vline~;
+#X text 20 327 [brkp_2_vline] translates the list of points and times
+that the [breakpoints] object from the "tof" library outputs as an
+envelope \, to a message in the format that [vline] accepts \, including
+the delay times for each point.;
+#X obj 622 385 send update;
+#X obj 201 226 r update;
+#X text 19 391 This is useful to use [tof/breakpoints] as a GUI to
+control non-GUI messages inside abstractions that can also be called
+inside the [clone] object available in Pd-Vanilla 0.47.1;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 3 0 11 0;
+#X connect 4 1 14 0;
+#X connect 4 2 14 1;
+#X connect 4 2 17 0;
+#X connect 5 0 4 0;
+#X connect 7 0 5 0;
+#X connect 8 0 9 0;
+#X connect 10 0 4 0;
+#X connect 11 0 15 0;
+#X connect 12 0 0 0;
+#X connect 13 0 11 0;
+#X connect 14 0 6 0;
+#X connect 15 0 0 1;
+#X connect 18 0 8 0;
