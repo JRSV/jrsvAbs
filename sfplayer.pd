@@ -1,16 +1,16 @@
 #N canvas 244 211 596 581 10;
 #X obj 35 379 readsf~;
 #X obj 102 171 openpanel;
-#X obj 102 103 bng 10 250 50 0 empty empty Open/File 12 5 0 8 -262144
--1 -1;
+#X obj 102 103 bng 10 250 50 0 empty empty Open 12 5 0 8 -262144 -1
+-1;
 #X msg 132 236 start;
 #X msg 199 284 stop;
-#X obj 159 103 tgl 10 0 empty empty Start/Stop 12 5 0 8 -262144 -1
--1 0 1;
+#X obj 102 117 tgl 10 0 empty empty Start 12 5 0 8 -262144 -1 -1 0
+1;
 #X obj 159 194 sel 1 0;
 #X obj 132 257 t a b;
 #X msg 505 221 0;
-#X obj 222 103 tgl 10 0 empty empty LOOP 12 5 0 8 -262144 -1 -1 0 1
+#X obj 102 131 tgl 10 0 empty empty LOOP 12 5 0 8 -262144 -1 -1 1 1
 ;
 #X obj 35 476 outlet~;
 #X obj 35 281 symbol;
@@ -45,4 +45,4 @@
 #X connect 16 0 12 1;
 #X connect 17 0 18 0;
 #X connect 18 0 0 0;
-#X coords 0 -1 1 1 155 15 2 100 100;
+#X coords 0 -1 1 1 40 45 2 100 100;
